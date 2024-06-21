@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Orders</title>
+</head>
+<body>
+    <h1>Sales Orders</h1>
+    <form action="/add_sales_order" method="post">
+        <label>Customer Name:</label><br>
+        <input type="text" name="customer_name"><br>
+        <label>Order Date:</label><br>
+        <input type="date" name="order_date"><br>
+        <label>Total Amount:</label><br>
+        <input type="text" name="total_amount"><br>
+        <label>Shipping Address:</label><br>
+        <input type="text" name="shipping_address"><br>
+        <label>Payment Method:</label><br>
+        <input type="text" name="payment_method"><br>
+        <button type="submit">Add Order</button>
+    </form>
+    <h2>Current Sales Orders</h2>
+    <ul>
+        {% for order in orders %}
+        <li>{{ order.customer_name }} - {{ order.order_date }} - R{{ order.total_amount }} - {{ order.shipping_address }} - {{ order.payment_method }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
